@@ -23,7 +23,7 @@ const initialMessages = [
 
 export default function MessagesScreen() {
   const [messages, setMessages] = useState(initialMessages);
-
+  const [refreshing, setRefreshing] = useState(false);
   const handleDelete = (message) => {
     //Delete message from array
     setMessages(messages.filter((m) => m.id !== message.id));
@@ -46,6 +46,17 @@ export default function MessagesScreen() {
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}
+        refreshing={refreshing}
+        onRefresh={() => {
+          setMessages([
+            {
+              id: 2,
+              title: "T2",
+              description: "D2",
+              image: require("../assets/guitar-logo.jpg"),
+            },
+          ]);
+        }}
       />
     </Screen>
   );
