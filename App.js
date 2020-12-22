@@ -16,9 +16,10 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import LoginScreen from "./app/screens/LoginScreen";
+import RegisterScreen from "./app/screens/RegisterScreen";
 
 export default function App() {
-  return <LoginScreen />;
+  return <RegisterScreen />;
 }
 
 const styles = StyleSheet.create({
