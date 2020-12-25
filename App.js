@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
@@ -31,26 +31,7 @@ import ImageInput from "./app/components/ImageInput";
 import ImageInputList from "./app/components/ImageInputList";
 
 export default function App() {
-  const [imageUris, setImageUris] = useState([]);
-
-  const handleAdd = (uri) => {
-    setImageUris([...imageUris, uri]);
-  };
-
-  const handleRemove = (uri) => {
-    setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
-  };
-
-  return (
-    <Screen>
-      <ImageInputList
-        imageUris={imageUris}
-        onAddImage={handleAdd}
-        //Same as uri => handleAdd(uri)
-        onRemoveImage={handleRemove}
-      />
-    </Screen>
-  );
+  return <ListingEditScreen />;
 }
 
 const styles = StyleSheet.create({
