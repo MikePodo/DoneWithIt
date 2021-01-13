@@ -17,9 +17,9 @@ const store = async (key, value) => {
 };
 
 const isExpired = (item) => {
-  const now = moment(Data.now());
+  const now = moment(Date.now());
   const storedTime = moment(item.timestamp);
-  return now.diff(storedTime, "minutes") > expiryInMinutes;
+  return now.diff(storedTime, "minutes") > 5;
 };
 
 const get = async (key) => {
@@ -30,10 +30,11 @@ const get = async (key) => {
     if (!item) return null;
 
     if (isExpired(item)) {
-      //Command Query Separation (CQS)
+      // Command Query Separation (CQS)
       await AsyncStorage.removeItem(prefix + key);
       return null;
     }
+
     return item.value;
   } catch (error) {
     console.log(error);
