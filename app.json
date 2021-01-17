@@ -26,7 +26,10 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "",
-    "githubUrl": "https://github.com/MikePodo/DoneWithIt"
+    "description": "A marketplace for selling the stuff you don't need anymore.",
+    "githubUrl": "https://github.com/MikePodo/DoneWithIt",
+    "notification": {
+      "iosDisplayInForeground": true
+    }
   }
 }
