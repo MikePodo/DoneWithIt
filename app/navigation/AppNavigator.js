@@ -9,12 +9,16 @@ import expoPushTokensApi from "../api/expoPushTokens";
 import ListingEditScreen from "../screens/ListingEditScreen";
 import FeedNavigator from "./FeedNavigator";
 import NewListingButton from "./NewListingButton";
+import navigation from "../navigation/rootNavigation";
 
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
   useEffect(() => {
     registerForPushNotifications();
+    Notifications.addNotificationResponseReceivedListener((notification) => {
+      navigation.navigate("Account");
+    });
   }, []);
 
   const registerForPushNotifications = async () => {
